@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Movebubble Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Match Blobs Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </LoopController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Match Blobs" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">movebubble.local</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/users/1/match-blobs?start=0&amp;numberOfResults=20</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Graphql Fetch Multiple Properties (20 page)" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperties&quot;,&quot;variables&quot;:{&quot;ids&quot;:[&quot;PropertyInformations/418&quot;]},&quot;query&quot;:&quot;query GetProperties($ids: [ID]!) {\n  properties(ids: $ids) {\n    id\n    ...PropertiesFeedItemProperty\n    __typename\n  }\n}\n\nfragment PropertiesFeedItemProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  reportedUnavailable\n  wasRecentlyAdded\n  ...PropertyFeedDetailsProperty\n  ...FeedMapCarouselCardProperty\n  ...PropertyCardTopProperty\n  ...WatchlistItemProperty\n  __typename\n}\n\nfragment PropertyFeedDetailsProperty on PropertySummaryModelType {\n  ...BathroomAndBedroomProperty\n  ...ClosestUndergroundStationProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment BathroomAndBedroomProperty on PropertySummaryModelType {\n  beds\n  baths\n  __typename\n}\n\nfragment ClosestUndergroundStationProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    iconName\n    distance\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment FeedMapCarouselCardProperty on PropertySummaryModelType {\n  id\n  beds\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  wasRecentlyAdded\n  reportedUnavailable\n  ...PropertyDetailsPriceProperty\n  ...PropertyDetailsAddressOneLineProperty\n  __typename\n}\n\nfragment PropertyDetailsAddressOneLineProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment WatchlistItemProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  demandComment\n  isPropertyStillAvailable\n  reportedUnavailable\n  ...PropertyFeedDetailsProperty\n  __typename\n}\n&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">movebubble.local</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Graphql Fetch Individual Property" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;operationName&quot;: &quot;GetProperty&quot;,&#xd;
+  &quot;variables&quot;: {&#xd;
+    &quot;id&quot;: &quot;PropertyInformations/418&quot;&#xd;
+  },&#xd;
+  &quot;query&quot;: &quot;query GetProperty($id: ID!) {&#xd;
+  property(id: $id) {&#xd;
+    id&#xd;
+    ...PropertyDetailsProperty&#xd;
+    __typename&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsProperty on PropertySummaryModelType {&#xd;
+  ...PropertyCardProperty&#xd;
+  ...FullscreenGalleryProperty&#xd;
+  ...ViewDetailsModalProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCardProperty on PropertySummaryModelType {&#xd;
+  title&#xd;
+  id&#xd;
+ systemType&#xd;
+ btrCommunityDetails {&#xd;
+	id&#xd;
+	name&#xd;
+	}&#xd;
+ btrAggregateDetails {&#xd;
+	btrAvailablePropertiesCount&#xd;
+	btrProperties {&#xd;
+		id&#xd;
+		title&#xd;
+		floorplan {&#xd;
+			mobileSizeUrl&#xd;
+			__typename&#xd;
+		}&#xd;
+		  photos {&#xd;
+		    fullSizeUrl&#xd;
+		    __typename&#xd;
+		  }&#xd;
+		pricePerMonth&#xd;
+		availableFrom&#xd;
+		isPropertyStillAvailable&#xd;
+		furnishing&#xd;
+		description&#xd;
+		propertyFeatures {&#xd;
+			title&#xd;
+			iconName&#xd;
+			__typename&#xd;
+		}&#xd;
+	}&#xd;
+ }&#xd;
+ beds&#xd;
+  baths&#xd;
+  description&#xd;
+  priceComment&#xd;
+  demandComment&#xd;
+  comment&#xd;
+  isPropertyStillAvailable&#xd;
+  availableFrom&#xd;
+  photos {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  floorplan {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  location {&#xd;
+    outcode&#xd;
+    area&#xd;
+    latitude&#xd;
+    longitude&#xd;
+    __typename&#xd;
+  }&#xd;
+  areaGuideModel {&#xd;
+    name&#xd;
+    imageUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  nearbyFeatureCategories {&#xd;
+    category&#xd;
+    numberOfItems&#xd;
+    maximumWalkingDistanceInMinutes&#xd;
+    minimumWalkingDistanceInMinutes&#xd;
+    iconName&#xd;
+    __typename&#xd;
+  }&#xd;
+  agency {&#xd;
+    name&#xd;
+    branch&#xd;
+    branchId&#xd;
+    rating {&#xd;
+      rating&#xd;
+      numberOfRatings&#xd;
+      __typename&#xd;
+    }&#xd;
+    __typename&#xd;
+  }&#xd;
+  ...PropertyDetailsFeaturesProperty&#xd;
+  ...CostOfRentingProperty&#xd;
+  ...PropertyCardTopProperty&#xd;
+  ...PropertyTransportLinksProperty&#xd;
+  ...ContactAgentRentItProperty&#xd;
+  ...CallFeedbackWrapperProperty&#xd;
+  ...PropertyCommunityFeedbackProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {&#xd;
+  propertyFeatures {&#xd;
+    title&#xd;
+    iconName&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment CostOfRentingProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  id&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCardTopProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  systemType&#xd;
+ beds&#xd;
+  baths&#xd;
+  addedOn&#xd;
+  reportedUnavailable&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  ...GalleryProperty&#xd;
+  ...PropertyDetailsAddressProperty&#xd;
+  ...PropertyDetailsPriceProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment GalleryProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  photos {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsAddressProperty on PropertySummaryModelType {&#xd;
+  location {&#xd;
+    addressLine1&#xd;
+    area&#xd;
+    outcode&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsPriceProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyTransportLinksProperty on PropertySummaryModelType {&#xd;
+  transportLinks {&#xd;
+    name&#xd;
+    type&#xd;
+    distance&#xd;
+    iconName&#xd;
+    additionalTransportTypes {&#xd;
+      iconName&#xd;
+      __typename&#xd;
+    }&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment ContactAgentRentItProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  agency {&#xd;
+    name&#xd;
+    phoneNumber&#xd;
+    emailAddress&#xd;
+    branchId&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment CallFeedbackWrapperProperty on PropertySummaryModelType {&#xd;
+  agency {&#xd;
+    name&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  communityFeedback {&#xd;
+    feedback&#xd;
+    iconName&#xd;
+    submittedAt&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment FullscreenGalleryProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  photos {&#xd;
+    fullSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment ViewDetailsModalProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  id&#xd;
+  __typename&#xd;
+}&#xd;
+&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">movebubble.local</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/graphql</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update User Filters" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;operationName&quot;: &quot;GetProperty&quot;,&#xd;
+  &quot;variables&quot;: {&#xd;
+    &quot;id&quot;: &quot;PropertyInformations/418&quot;&#xd;
+  },&#xd;
+  &quot;query&quot;: &quot;query GetProperty($id: ID!) {&#xd;
+  property(id: $id) {&#xd;
+    id&#xd;
+    ...PropertyDetailsProperty&#xd;
+    __typename&#xd;
+  }&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsProperty on PropertySummaryModelType {&#xd;
+  ...PropertyCardProperty&#xd;
+  ...FullscreenGalleryProperty&#xd;
+  ...ViewDetailsModalProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCardProperty on PropertySummaryModelType {&#xd;
+  title&#xd;
+  id&#xd;
+ systemType&#xd;
+ btrCommunityDetails {&#xd;
+	id&#xd;
+	name&#xd;
+	}&#xd;
+ btrAggregateDetails {&#xd;
+	btrAvailablePropertiesCount&#xd;
+	btrProperties {&#xd;
+		id&#xd;
+		title&#xd;
+		floorplan {&#xd;
+			mobileSizeUrl&#xd;
+			__typename&#xd;
+		}&#xd;
+		  photos {&#xd;
+		    fullSizeUrl&#xd;
+		    __typename&#xd;
+		  }&#xd;
+		pricePerMonth&#xd;
+		availableFrom&#xd;
+		isPropertyStillAvailable&#xd;
+		furnishing&#xd;
+		description&#xd;
+		propertyFeatures {&#xd;
+			title&#xd;
+			iconName&#xd;
+			__typename&#xd;
+		}&#xd;
+	}&#xd;
+ }&#xd;
+ beds&#xd;
+  baths&#xd;
+  description&#xd;
+  priceComment&#xd;
+  demandComment&#xd;
+  comment&#xd;
+  isPropertyStillAvailable&#xd;
+  availableFrom&#xd;
+  photos {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  floorplan {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  location {&#xd;
+    outcode&#xd;
+    area&#xd;
+    latitude&#xd;
+    longitude&#xd;
+    __typename&#xd;
+  }&#xd;
+  areaGuideModel {&#xd;
+    name&#xd;
+    imageUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  nearbyFeatureCategories {&#xd;
+    category&#xd;
+    numberOfItems&#xd;
+    maximumWalkingDistanceInMinutes&#xd;
+    minimumWalkingDistanceInMinutes&#xd;
+    iconName&#xd;
+    __typename&#xd;
+  }&#xd;
+  agency {&#xd;
+    name&#xd;
+    branch&#xd;
+    branchId&#xd;
+    rating {&#xd;
+      rating&#xd;
+      numberOfRatings&#xd;
+      __typename&#xd;
+    }&#xd;
+    __typename&#xd;
+  }&#xd;
+  ...PropertyDetailsFeaturesProperty&#xd;
+  ...CostOfRentingProperty&#xd;
+  ...PropertyCardTopProperty&#xd;
+  ...PropertyTransportLinksProperty&#xd;
+  ...ContactAgentRentItProperty&#xd;
+  ...CallFeedbackWrapperProperty&#xd;
+  ...PropertyCommunityFeedbackProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {&#xd;
+  propertyFeatures {&#xd;
+    title&#xd;
+    iconName&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment CostOfRentingProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  id&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCardTopProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  systemType&#xd;
+ beds&#xd;
+  baths&#xd;
+  addedOn&#xd;
+  reportedUnavailable&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  ...GalleryProperty&#xd;
+  ...PropertyDetailsAddressProperty&#xd;
+  ...PropertyDetailsPriceProperty&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment GalleryProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  photos {&#xd;
+    mobileSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsAddressProperty on PropertySummaryModelType {&#xd;
+  location {&#xd;
+    addressLine1&#xd;
+    area&#xd;
+    outcode&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyDetailsPriceProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyTransportLinksProperty on PropertySummaryModelType {&#xd;
+  transportLinks {&#xd;
+    name&#xd;
+    type&#xd;
+    distance&#xd;
+    iconName&#xd;
+    additionalTransportTypes {&#xd;
+      iconName&#xd;
+      __typename&#xd;
+    }&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment ContactAgentRentItProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  services {&#xd;
+    chatWithAgent&#xd;
+    __typename&#xd;
+  }&#xd;
+  agency {&#xd;
+    name&#xd;
+    phoneNumber&#xd;
+    emailAddress&#xd;
+    branchId&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment CallFeedbackWrapperProperty on PropertySummaryModelType {&#xd;
+  agency {&#xd;
+    name&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  communityFeedback {&#xd;
+    feedback&#xd;
+    iconName&#xd;
+    submittedAt&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment FullscreenGalleryProperty on PropertySummaryModelType {&#xd;
+  id&#xd;
+  photos {&#xd;
+    fullSizeUrl&#xd;
+    __typename&#xd;
+  }&#xd;
+  __typename&#xd;
+}&#xd;
+&#xd;
+fragment ViewDetailsModalProperty on PropertySummaryModelType {&#xd;
+  pricePerMonth&#xd;
+  id&#xd;
+  __typename&#xd;
+}&#xd;
+&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">movebubble.local</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/graphql</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Movebubble-User-ID</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
