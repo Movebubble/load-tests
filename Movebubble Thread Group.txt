@@ -1,4 +1,0 @@
-ChatAvailable,0,1000
-MostRecentlyAdded,0,1000
-HighestPrice,0,1000
-LowestPrice,0,1000
