@@ -16,9 +16,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">30</stringProp>
@@ -201,26 +201,7 @@
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperties&quot;,&quot;variables&quot;:{&quot;ids&quot;:[&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;,&#xd;
-&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;&#xd;
+${propertyIds}&#xd;
 ]},&quot;query&quot;:&quot;query GetProperties($ids: [ID]!) {\n  properties(ids: $ids) {\n    id\n    ...PropertiesFeedItemProperty\n    __typename\n  }\n}\n\nfragment PropertiesFeedItemProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  reportedUnavailable\n  wasRecentlyAdded\n  ...PropertyFeedDetailsProperty\n  ...FeedMapCarouselCardProperty\n  ...PropertyCardTopProperty\n  ...WatchlistItemProperty\n  __typename\n}\n\nfragment PropertyFeedDetailsProperty on PropertySummaryModelType {\n  ...BathroomAndBedroomProperty\n  ...ClosestUndergroundStationProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment BathroomAndBedroomProperty on PropertySummaryModelType {\n  beds\n  baths\n  __typename\n}\n\nfragment ClosestUndergroundStationProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    iconName\n    distance\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment FeedMapCarouselCardProperty on PropertySummaryModelType {\n  id\n  beds\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  wasRecentlyAdded\n  reportedUnavailable\n  ...PropertyDetailsPriceProperty\n  ...PropertyDetailsAddressOneLineProperty\n  __typename\n}\n\nfragment PropertyDetailsAddressOneLineProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment WatchlistItemProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  demandComment\n  isPropertyStillAvailable\n  reportedUnavailable\n  ...PropertyFeedDetailsProperty\n  __typename\n}\n&quot;}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -240,7 +221,20 @@
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
-            <hashTree/>
+            <hashTree>
+              <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Recent 20000 Property Ids Grouped By 20 Per Row (CSV Config)" enabled="true">
+                <stringProp name="filename">C:/code/load-tests/RecentPropertyIdsGroupedBy20PerRow.csv</stringProp>
+                <stringProp name="fileEncoding"></stringProp>
+                <stringProp name="variableNames">propertyIds</stringProp>
+                <boolProp name="ignoreFirstLine">false</boolProp>
+                <stringProp name="delimiter">:::</stringProp>
+                <boolProp name="quotedData">false</boolProp>
+                <boolProp name="recycle">true</boolProp>
+                <boolProp name="stopThread">false</boolProp>
+                <stringProp name="shareMode">shareMode.all</stringProp>
+              </CSVDataSet>
+              <hashTree/>
+            </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Check 5 Properties (Loop Controller)" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
               <stringProp name="LoopController.loops">5</stringProp>
@@ -252,7 +246,7 @@
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperty&quot;,&quot;variables&quot;:{&quot;id&quot;:&quot;PropertyInformations/${__groovy(return (new Random().nextInt(${TestPropertyIdRangeMax}-${TestPropertyIdRangeMin}+1)+${TestPropertyIdRangeMin}))}&quot;},&quot;query&quot;:&quot;query GetProperty($id: ID!) {\n  property(id: $id) {\n    id\n    ...PropertyDetailsProperty\n    __typename\n  }\n}\n\nfragment PropertyDetailsProperty on PropertySummaryModelType {\n  ...PropertyCardProperty\n  ...FullscreenGalleryProperty\n  ...ViewDetailsModalProperty\n  __typename\n}\n\nfragment PropertyCardProperty on PropertySummaryModelType {\n  title\n  id\n  beds\n  baths\n  description\n  priceComment\n  comment\n  isPropertyStillAvailable\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  floorplan {\n    mobileSizeUrl\n    __typename\n  }\n  location {\n    outcode\n    area\n    latitude\n    longitude\n    __typename\n  }\n  areaGuideModel {\n    name\n    imageUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  nearbyFeatureCategories {\n    category\n    numberOfItems\n    maximumWalkingDistanceInMinutes\n    minimumWalkingDistanceInMinutes\n    iconName\n    __typename\n  }\n  agency {\n    name\n    branch\n    branchId\n    rating {\n      rating\n      numberOfRatings\n      __typename\n    }\n    __typename\n  }\n  ...PropertyDetailsFeaturesProperty\n  ...CostOfRentingProperty\n  ...PropertyCardTopProperty\n  ...PropertyTransportLinksProperty\n  ...ContactAgentRentItProperty\n  ...CallFeedbackWrapperProperty\n  ...PropertyCommunityFeedbackProperty\n  __typename\n}\n\nfragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {\n  propertyFeatures {\n    title\n    iconName\n    __typename\n  }\n  __typename\n}\n\nfragment CostOfRentingProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment PropertyTransportLinksProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    type\n    distance\n    iconName\n    additionalTransportTypes {\n      iconName\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment ContactAgentRentItProperty on PropertySummaryModelType {\n  id\n  services {\n    chatWithAgent\n    __typename\n  }\n  agency {\n    name\n    phoneNumber\n    emailAddress\n    branchId\n    __typename\n  }\n  ...ContactAgentEmailProperty\n  __typename\n}\n\nfragment ContactAgentEmailProperty on PropertySummaryModelType {\n  pricePerMonth\n  beds\n  location {\n    addressLine1\n    __typename\n  }\n  __typename\n}\n\nfragment CallFeedbackWrapperProperty on PropertySummaryModelType {\n  agency {\n    name\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {\n  id\n  communityFeedback {\n    feedback\n    iconName\n    submittedAt\n    __typename\n  }\n  __typename\n}\n\nfragment FullscreenGalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    fullSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment ViewDetailsModalProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperty&quot;,&quot;variables&quot;:{&quot;id&quot;:${propertyId}},&quot;query&quot;:&quot;query GetProperty($id: ID!) {\n  property(id: $id) {\n    id\n    ...PropertyDetailsProperty\n    __typename\n  }\n}\n\nfragment PropertyDetailsProperty on PropertySummaryModelType {\n  ...PropertyCardProperty\n  ...FullscreenGalleryProperty\n  ...ViewDetailsModalProperty\n  __typename\n}\n\nfragment PropertyCardProperty on PropertySummaryModelType {\n  title\n  id\n  beds\n  baths\n  description\n  priceComment\n  comment\n  isPropertyStillAvailable\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  floorplan {\n    mobileSizeUrl\n    __typename\n  }\n  location {\n    outcode\n    area\n    latitude\n    longitude\n    __typename\n  }\n  areaGuideModel {\n    name\n    imageUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  nearbyFeatureCategories {\n    category\n    numberOfItems\n    maximumWalkingDistanceInMinutes\n    minimumWalkingDistanceInMinutes\n    iconName\n    __typename\n  }\n  agency {\n    name\n    branch\n    branchId\n    rating {\n      rating\n      numberOfRatings\n      __typename\n    }\n    __typename\n  }\n  ...PropertyDetailsFeaturesProperty\n  ...CostOfRentingProperty\n  ...PropertyCardTopProperty\n  ...PropertyTransportLinksProperty\n  ...ContactAgentRentItProperty\n  ...CallFeedbackWrapperProperty\n  ...PropertyCommunityFeedbackProperty\n  __typename\n}\n\nfragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {\n  propertyFeatures {\n    title\n    iconName\n    __typename\n  }\n  __typename\n}\n\nfragment CostOfRentingProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment PropertyTransportLinksProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    type\n    distance\n    iconName\n    additionalTransportTypes {\n      iconName\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment ContactAgentRentItProperty on PropertySummaryModelType {\n  id\n  services {\n    chatWithAgent\n    __typename\n  }\n  agency {\n    name\n    phoneNumber\n    emailAddress\n    branchId\n    __typename\n  }\n  ...ContactAgentEmailProperty\n  __typename\n}\n\nfragment ContactAgentEmailProperty on PropertySummaryModelType {\n  pricePerMonth\n  beds\n  location {\n    addressLine1\n    __typename\n  }\n  __typename\n}\n\nfragment CallFeedbackWrapperProperty on PropertySummaryModelType {\n  agency {\n    name\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {\n  id\n  communityFeedback {\n    feedback\n    iconName\n    submittedAt\n    __typename\n  }\n  __typename\n}\n\nfragment FullscreenGalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    fullSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment ViewDetailsModalProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -271,7 +265,20 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree/>
+              <hashTree>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Recent 20000 Property Ids (CSV Config)" enabled="true">
+                  <stringProp name="filename">C:/code/load-tests/RecentPropertyIds.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">propertyId</stringProp>
+                  <boolProp name="ignoreFirstLine">false</boolProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+              </hashTree>
             </hashTree>
           </hashTree>
         </hashTree>
@@ -713,7 +720,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Test Env Profile)" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Test Env Profile)" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="TestUserId" elementType="Argument">
             <stringProp name="Argument.name">TestUserId</stringProp>
@@ -740,20 +747,10 @@
             <stringProp name="Argument.value">443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="TestPropertyIdRangeMin" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMin</stringProp>
-            <stringProp name="Argument.value">1226150</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestPropertyIdRangeMax" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMax</stringProp>
-            <stringProp name="Argument.value">1226156</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="TestUserId" elementType="Argument">
             <stringProp name="Argument.name">TestUserId</stringProp>
@@ -778,16 +775,6 @@
           <elementProp name="TestEnvPort" elementType="Argument">
             <stringProp name="Argument.name">TestEnvPort</stringProp>
             <stringProp name="Argument.value">443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestPropertyIdRangeMin" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMin</stringProp>
-            <stringProp name="Argument.value">1209219</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestPropertyIdRangeMax" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMax</stringProp>
-            <stringProp name="Argument.value">1409219</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
