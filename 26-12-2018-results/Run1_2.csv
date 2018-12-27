@@ -1,0 +1,4 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Update Filters With Area (Request),940,332,69,5944,322.25,0.106%,2.57024,2.26,1.49,902.0
+Update Filters WITHOUT Area (Request),187,281,76,3523,303.78,0.000%,.51497,0.44,0.28,865.0
+TOTAL,1127,324,69,5944,319.82,0.089%,3.08155,2.70,1.76,895.9

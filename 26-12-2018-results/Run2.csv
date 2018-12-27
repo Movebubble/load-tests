@@ -1,0 +1,11 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Get User (Request),678,578,300,5117,418.27,0.000%,1.61535,52.82,0.45,33484.3
+Get Viewings (Request),1889,1049,158,7019,647.28,0.000%,4.49488,2.80,1.42,638.0
+Get Offers (Request),1886,1087,140,8480,777.26,0.000%,4.49332,2.40,1.29,546.0
+Get Notifications (Request),1884,577,73,7244,548.07,0.000%,4.49345,2.53,1.32,576.0
+Get Filters (Request),1883,306,57,5959,450.52,0.000%,4.49876,3.92,1.29,892.5
+Match Blobs for All Props Ids (Request),1883,1823,117,7391,1058.57,0.000%,4.47434,126.08,1.45,28854.5
+Match Blobs for 1000 Props with Locations (Request),1878,2364,109,8508,1128.56,0.000%,4.47002,120.15,1.54,27523.5
+Graphql Fetch 20 Properties Page (Request),3689,1590,238,21341,910.36,0.000%,8.81113,252.53,26.92,29348.0
+Check Property (Request),18242,1217,136,25302,857.82,0.005%,43.65765,520.62,168.15,12211.4
+TOTAL,33912,1239,57,25302,945.85,0.003%,80.38667,1075.84,201.99,13704.6
