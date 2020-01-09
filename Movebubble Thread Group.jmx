@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Movebubble Production Load Testing (Plan)" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -12,20 +12,220 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load/Search/View (Thread Group)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Renter App Flow (Thread Group)" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0.5</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">420</stringProp>
+        <stringProp name="ThreadGroup.duration">2</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get User (Request)" enabled="true">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run Variables (User Defined Variables)" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="jMeterUserSessionId" elementType="Argument">
+              <stringProp name="Argument.name">jMeterUserSessionId</stringProp>
+              <stringProp name="Argument.value">${__UUID()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login Anonymous Renter (Request)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;appKey&quot;: &quot;SEARCH_APP&quot;,&#xd;
+	&quot;authDetails&quot;: {&#xd;
+		&quot;type&quot;: &quot;ANONYMOUS&quot;&#xd;
+	}&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/auth/auth</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Auth Token Extractor (JSON Extractor)" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">xAuthToken</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="User Id Extractor (JSON Extractor)" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.userId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Save Renter Profile (Request)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;email&quot;:&quot;jmeter.tester@${jMeterUserSessionId}.com&quot;,&#xd;
+   &quot;productDetails&quot;:{&#xd;
+      &quot;type&quot;:&quot;SEARCH_APP&quot;,&#xd;
+      &quot;fullName&quot;:&quot;JMeter Tester&quot;,&#xd;
+      &quot;firstName&quot;:&quot;JMeter&quot;,&#xd;
+      &quot;lastName&quot;:&quot;Test&quot;,&#xd;
+      &quot;mobileNumber&quot;:&quot;+380979999999&quot;,&#xd;
+      &quot;profileImage&quot;:null,&#xd;
+      &quot;moveDate&quot;:null,&#xd;
+      &quot;contractLength&quot;:null,&#xd;
+      &quot;appSettings&quot;:{&#xd;
+         &quot;notificationsFrequency&quot;:&quot;DAILY&quot;&#xd;
+      },&#xd;
+      &quot;pets&quot;:[&#xd;
+         &quot;DOGS&quot;&#xd;
+      ],&#xd;
+      &quot;aboutMe&quot;:&quot;Nice Guy&quot;,&#xd;
+      &quot;houseHoldIncome&quot;:1,&#xd;
+      &quot;cityKey&quot;:&quot;LONDON&quot;,&#xd;
+      &quot;movingSituation&quot;:&quot;JUST_ME&quot;,&#xd;
+      &quot;numberOfBedrooms&quot;:[&#xd;
+         1&#xd;
+      ],&#xd;
+      &quot;employer&quot;:&quot;MB&quot;,&#xd;
+      &quot;jobTitle&quot;:&quot;Job&quot;,&#xd;
+      &quot;marketing&quot;:{&#xd;
+         &quot;receiveNews&quot;:true&#xd;
+      },&#xd;
+      &quot;renterSavedSearch&quot;:{&#xd;
+         &quot;cityKey&quot;:&quot;LONDON&quot;,&#xd;
+         &quot;entityFilters&quot;:[&#xd;
+&#xd;
+         ],&#xd;
+         &quot;sort&quot;:&quot;RENTER_FRIENDLY&quot;,&#xd;
+         &quot;basicFilters&quot;:[&#xd;
+            &quot;MOVEBUBBLE_ONE&quot;&#xd;
+         ],&#xd;
+         &quot;bedrooms&quot;:[&#xd;
+            0,&#xd;
+            1,&#xd;
+            2,&#xd;
+            3,&#xd;
+            4&#xd;
+         ],&#xd;
+         &quot;bathrooms&quot;:[&#xd;
+&#xd;
+         ],&#xd;
+         &quot;price&quot;:{&#xd;
+            &quot;priceType&quot;:&quot;PER_MONTH&quot;,&#xd;
+            &quot;priceFrom&quot;:null,&#xd;
+            &quot;priceTo&quot;:null&#xd;
+         }&#xd;
+      },&#xd;
+         &quot;featureToggles&quot;:[&#xd;
+   ],&#xd;
+      &quot;populationPercentage&quot;:54.54545454545454&#xd;
+   }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/account/users/${userId}/product/SEARCH_APP/details</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${xAuthToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Save Renter Device Details (Request)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;appKey&quot;:&quot;SEARCH_APP&quot;,&#xd;
+   &quot;platform&quot;:&quot;IOS&quot;,&#xd;
+   &quot;version&quot;:&quot;1.0.2.1&quot;,&#xd;
+   &quot;deviceDetails&quot;:{&#xd;
+      &quot;type&quot;:&quot;MOBILE&quot;,&#xd;
+      &quot;make&quot;:&quot;Apple&quot;,&#xd;
+      &quot;model&quot;:&quot;iPhone 8 Plus=&quot;,&#xd;
+      &quot;os&quot;:&quot;IOS&quot;,&#xd;
+      &quot;osVersion&quot;:&quot;13.3.1&quot;,&#xd;
+      &quot;platformType&quot;:&quot;vIOS&quot;,&#xd;
+      &quot;deviceId&quot;:&quot;someDeviceId&quot;,&#xd;
+      &quot;registrationToken&quot;:&quot;someRegistrationToken&quot;,&#xd;
+      &quot;apnsToken&quot;:&quot;someApnsToken&quot;&#xd;
+   }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/account/users/${userId}/app/details</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${xAuthToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Renter Saved Search (Request)" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -33,7 +233,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/users/${TestUserId}</stringProp>
+          <stringProp name="HTTPSampler.path">/api/account/users/${userId}/product/SEARCH_APP/details</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -43,8 +243,22 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Search Feed Full Cycle (Loop Controller)" enabled="true">
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Auth-Token</stringProp>
+                <stringProp name="Header.value">${xAuthToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-mb-resolvers</stringProp>
+                <stringProp name="Header.value">RENTER_SAVED_SEARCH</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Search Feed Full Cycle (Loop Controller)" enabled="false">
           <boolProp name="LoopController.continue_forever">true</boolProp>
           <stringProp name="LoopController.loops">3</stringProp>
         </LoopController>
@@ -438,7 +652,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="User Filters Change (Thread Group)" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="User Filters Change (Thread Group)" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -449,6 +663,7 @@
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">420</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Update Filters With Area Cycle (Loop Controller)" enabled="true">
@@ -670,36 +885,14 @@
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">X-Movebubble-User-ID</stringProp>
-            <stringProp name="Header.value">${TestUserId}</stringProp>
-          </elementProp>
-          <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
             <stringProp name="Header.value">application/json</stringProp>
-          </elementProp>
-          <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">X-Movebubble-User-Token</stringProp>
-            <stringProp name="Header.value">${TestUserApiToken}</stringProp>
-          </elementProp>
-          <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">X-Movebubble-Version</stringProp>
-            <stringProp name="Header.value">1.29.0</stringProp>
           </elementProp>
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Roman&apos;s Local PC Profile)" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Local Env Profile)" enabled="false">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="TestUserId" elementType="Argument">
-            <stringProp name="Argument.name">TestUserId</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestUserApiToken" elementType="Argument">
-            <stringProp name="Argument.name">TestUserApiToken</stringProp>
-            <stringProp name="Argument.value">9c63aff6a447402fb941228aa19f7612</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="TestEnvProtocol" elementType="Argument">
             <stringProp name="Argument.name">TestEnvProtocol</stringProp>
             <stringProp name="Argument.value">http</stringProp>
@@ -707,7 +900,7 @@
           </elementProp>
           <elementProp name="TestEnvApiDomain" elementType="Argument">
             <stringProp name="Argument.name">TestEnvApiDomain</stringProp>
-            <stringProp name="Argument.value">movebubble.local</stringProp>
+            <stringProp name="Argument.value">api.local.movebubble.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TestEnvPort" elementType="Argument">
@@ -715,31 +908,11 @@
             <stringProp name="Argument.value">80</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="TestPropertyIdRangeMin" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMin</stringProp>
-            <stringProp name="Argument.value">417</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestPropertyIdRangeMax" elementType="Argument">
-            <stringProp name="Argument.name">TestPropertyIdRangeMax</stringProp>
-            <stringProp name="Argument.value">418</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Test Env Profile)" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Stage Env Profile)" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="TestUserId" elementType="Argument">
-            <stringProp name="Argument.name">TestUserId</stringProp>
-            <stringProp name="Argument.value">87641</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestUserApiToken" elementType="Argument">
-            <stringProp name="Argument.name">TestUserApiToken</stringProp>
-            <stringProp name="Argument.value">3a462c32f3564395887f9b318b024281</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="TestEnvProtocol" elementType="Argument">
             <stringProp name="Argument.name">TestEnvProtocol</stringProp>
             <stringProp name="Argument.value">https</stringProp>
@@ -747,7 +920,7 @@
           </elementProp>
           <elementProp name="TestEnvApiDomain" elementType="Argument">
             <stringProp name="Argument.name">TestEnvApiDomain</stringProp>
-            <stringProp name="Argument.value">api-test.movebubble.com</stringProp>
+            <stringProp name="Argument.value">api.stage.movebubble.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TestEnvPort" elementType="Argument">
@@ -758,18 +931,8 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="false">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="TestUserId" elementType="Argument">
-            <stringProp name="Argument.name">TestUserId</stringProp>
-            <stringProp name="Argument.value">241769</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestUserApiToken" elementType="Argument">
-            <stringProp name="Argument.name">TestUserApiToken</stringProp>
-            <stringProp name="Argument.value">3a462c32f3564395887f9b318b024281</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="TestEnvProtocol" elementType="Argument">
             <stringProp name="Argument.name">TestEnvProtocol</stringProp>
             <stringProp name="Argument.value">https</stringProp>
@@ -777,37 +940,7 @@
           </elementProp>
           <elementProp name="TestEnvApiDomain" elementType="Argument">
             <stringProp name="Argument.name">TestEnvApiDomain</stringProp>
-            <stringProp name="Argument.value">api.movebubble.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestEnvPort" elementType="Argument">
-            <stringProp name="Argument.name">TestEnvPort</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Stage Env Profile)" enabled="false">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="TestUserId" elementType="Argument">
-            <stringProp name="Argument.name">TestUserId</stringProp>
-            <stringProp name="Argument.value">962</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestUserApiToken" elementType="Argument">
-            <stringProp name="Argument.name">TestUserApiToken</stringProp>
-            <stringProp name="Argument.value">3a462c32f3564395887f9b318b024281</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestEnvProtocol" elementType="Argument">
-            <stringProp name="Argument.name">TestEnvProtocol</stringProp>
-            <stringProp name="Argument.value">https</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TestEnvApiDomain" elementType="Argument">
-            <stringProp name="Argument.name">TestEnvApiDomain</stringProp>
-            <stringProp name="Argument.value">api-staging.movebubble.com</stringProp>
+            <stringProp name="Argument.value">api.TBD.movebubble.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TestEnvPort" elementType="Argument">
