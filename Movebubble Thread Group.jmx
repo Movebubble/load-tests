@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0.5</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">30</stringProp>
@@ -26,7 +26,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run Variables (User Defined Variables)" enabled="true">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run Variables (User Defined Variables)" enabled="false">
           <collectionProp name="Arguments.arguments">
             <elementProp name="jMeterUserSessionId" elementType="Argument">
               <stringProp name="Argument.name">jMeterUserSessionId</stringProp>
@@ -87,7 +87,7 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-   &quot;email&quot;:&quot;jmeter.tester@${jMeterUserSessionId}.com&quot;,&#xd;
+   &quot;email&quot;:&quot;jmeter.tester@${__UUID()}.com&quot;,&#xd;
    &quot;productDetails&quot;:{&#xd;
       &quot;type&quot;:&quot;SEARCH_APP&quot;,&#xd;
       &quot;fullName&quot;:&quot;JMeter Tester&quot;,&#xd;
@@ -260,7 +260,7 @@
         </hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Search Feed Full Cycle (Loop Controller)" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">10</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </LoopController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Renter Search (Request)" enabled="true">
@@ -322,33 +322,55 @@
                   <stringProp name="Header.name">X-Auth-Token</stringProp>
                   <stringProp name="Header.value">${xAuthToken}</stringProp>
                 </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">x-mb-resolvers</stringProp>
-                  <stringProp name="Header.value">RENTER_SAVED_SEARCH</stringProp>
-                </elementProp>
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Property Ids Extractor (JSON Extractor)" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">searchResultPropertyIds</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.results.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Offers (Request)" enabled="false">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments"/>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol"></stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/users/${TestUserId}/offers</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Check 5 Properties (Loop Controller)" enabled="false">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">5</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Property Details (Request)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/api/property/properties/5e156a0d88263000016db372</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">X-Auth-Token</stringProp>
+                    <stringProp name="Header.value">${xAuthToken}</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">x-mb-resolvers</stringProp>
+                    <stringProp name="Header.value">BTR_AGGREGATE_PROPERTIES,USERS,ORGANIZATIONS,UNITS</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Notifications (Request)" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
@@ -504,50 +526,50 @@
               </CSVDataSet>
               <hashTree/>
             </hashTree>
-            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Check 5 Properties (Loop Controller)" enabled="true">
-              <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">5</stringProp>
-            </LoopController>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Check 5 Properties (Loop Controller)" enabled="false">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">5</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Property (Request)" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperty&quot;,&quot;variables&quot;:{&quot;id&quot;:&quot;PropertyInformations/1171393&quot;},&quot;query&quot;:&quot;query GetProperty($id: ID!) {\n  property(id: $id) {\n    id\n    ...PropertyDetailsProperty\n    __typename\n  }\n}\n\nfragment PropertyDetailsProperty on PropertySummaryModelType {\n  ...PropertyCardProperty\n  ...FullscreenGalleryProperty\n  ...ViewDetailsModalProperty\n  __typename\n}\n\nfragment PropertyCardProperty on PropertySummaryModelType {\n  title\n  id\n  beds\n  baths\n  description\n  priceComment\n  comment\n  isPropertyStillAvailable\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  floorplan {\n    mobileSizeUrl\n    __typename\n  }\n  location {\n    outcode\n    area\n    latitude\n    longitude\n    __typename\n  }\n  areaGuideModel {\n    name\n    imageUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  nearbyFeatureCategories {\n    category\n    numberOfItems\n    maximumWalkingDistanceInMinutes\n    minimumWalkingDistanceInMinutes\n    iconName\n    __typename\n  }\n  agency {\n    name\n    branch\n    branchId\n    rating {\n      rating\n      numberOfRatings\n      __typename\n    }\n    __typename\n  }\n  ...PropertyDetailsFeaturesProperty\n  ...CostOfRentingProperty\n  ...PropertyCardTopProperty\n  ...PropertyTransportLinksProperty\n  ...ContactAgentRentItProperty\n  ...CallFeedbackWrapperProperty\n  ...PropertyCommunityFeedbackProperty\n  __typename\n}\n\nfragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {\n  propertyFeatures {\n    title\n    iconName\n    __typename\n  }\n  __typename\n}\n\nfragment CostOfRentingProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment PropertyTransportLinksProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    type\n    distance\n    iconName\n    additionalTransportTypes {\n      iconName\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment ContactAgentRentItProperty on PropertySummaryModelType {\n  id\n  services {\n    chatWithAgent\n    __typename\n  }\n  agency {\n    name\n    phoneNumber\n    emailAddress\n    branchId\n    __typename\n  }\n  ...ContactAgentEmailProperty\n  __typename\n}\n\nfragment ContactAgentEmailProperty on PropertySummaryModelType {\n  pricePerMonth\n  beds\n  location {\n    addressLine1\n    __typename\n  }\n  __typename\n}\n\nfragment CallFeedbackWrapperProperty on PropertySummaryModelType {\n  agency {\n    name\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {\n  id\n  communityFeedback {\n    feedback\n    iconName\n    submittedAt\n    __typename\n  }\n  __typename\n}\n\nfragment FullscreenGalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    fullSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment ViewDetailsModalProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/api/graphql</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Property (Request)" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetProperty&quot;,&quot;variables&quot;:{&quot;id&quot;:&quot;PropertyInformations/1171393&quot;},&quot;query&quot;:&quot;query GetProperty($id: ID!) {\n  property(id: $id) {\n    id\n    ...PropertyDetailsProperty\n    __typename\n  }\n}\n\nfragment PropertyDetailsProperty on PropertySummaryModelType {\n  ...PropertyCardProperty\n  ...FullscreenGalleryProperty\n  ...ViewDetailsModalProperty\n  __typename\n}\n\nfragment PropertyCardProperty on PropertySummaryModelType {\n  title\n  id\n  beds\n  baths\n  description\n  priceComment\n  comment\n  isPropertyStillAvailable\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  floorplan {\n    mobileSizeUrl\n    __typename\n  }\n  location {\n    outcode\n    area\n    latitude\n    longitude\n    __typename\n  }\n  areaGuideModel {\n    name\n    imageUrl\n    __typename\n  }\n  services {\n    chatWithAgent\n    __typename\n  }\n  nearbyFeatureCategories {\n    category\n    numberOfItems\n    maximumWalkingDistanceInMinutes\n    minimumWalkingDistanceInMinutes\n    iconName\n    __typename\n  }\n  agency {\n    name\n    branch\n    branchId\n    rating {\n      rating\n      numberOfRatings\n      __typename\n    }\n    __typename\n  }\n  ...PropertyDetailsFeaturesProperty\n  ...CostOfRentingProperty\n  ...PropertyCardTopProperty\n  ...PropertyTransportLinksProperty\n  ...ContactAgentRentItProperty\n  ...CallFeedbackWrapperProperty\n  ...PropertyCommunityFeedbackProperty\n  __typename\n}\n\nfragment PropertyDetailsFeaturesProperty on PropertySummaryModelType {\n  propertyFeatures {\n    title\n    iconName\n    __typename\n  }\n  __typename\n}\n\nfragment CostOfRentingProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n\nfragment PropertyCardTopProperty on PropertySummaryModelType {\n  id\n  beds\n  baths\n  addedOn\n  reportedUnavailable\n  services {\n    chatWithAgent\n    __typename\n  }\n  ...GalleryProperty\n  ...PropertyDetailsAddressProperty\n  ...PropertyDetailsPriceProperty\n  __typename\n}\n\nfragment GalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    mobileSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsAddressProperty on PropertySummaryModelType {\n  location {\n    addressLine1\n    area\n    outcode\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyDetailsPriceProperty on PropertySummaryModelType {\n  pricePerMonth\n  __typename\n}\n\nfragment PropertyTransportLinksProperty on PropertySummaryModelType {\n  transportLinks {\n    name\n    type\n    distance\n    iconName\n    additionalTransportTypes {\n      iconName\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment ContactAgentRentItProperty on PropertySummaryModelType {\n  id\n  services {\n    chatWithAgent\n    __typename\n  }\n  agency {\n    name\n    phoneNumber\n    emailAddress\n    branchId\n    __typename\n  }\n  ...ContactAgentEmailProperty\n  __typename\n}\n\nfragment ContactAgentEmailProperty on PropertySummaryModelType {\n  pricePerMonth\n  beds\n  location {\n    addressLine1\n    __typename\n  }\n  __typename\n}\n\nfragment CallFeedbackWrapperProperty on PropertySummaryModelType {\n  agency {\n    name\n    __typename\n  }\n  __typename\n}\n\nfragment PropertyCommunityFeedbackProperty on PropertySummaryModelType {\n  id\n  communityFeedback {\n    feedback\n    iconName\n    submittedAt\n    __typename\n  }\n  __typename\n}\n\nfragment FullscreenGalleryProperty on PropertySummaryModelType {\n  id\n  photos {\n    fullSizeUrl\n    __typename\n  }\n  __typename\n}\n\nfragment ViewDetailsModalProperty on PropertySummaryModelType {\n  pricePerMonth\n  id\n  __typename\n}\n&quot;}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">/api/graphql</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Recent 20000 Property Ids (CSV Config)" enabled="true">
-                  <stringProp name="filename">C:/code/load-tests/RecentPropertyIds.csv</stringProp>
-                  <stringProp name="fileEncoding"></stringProp>
-                  <stringProp name="variableNames">propertyId</stringProp>
-                  <boolProp name="ignoreFirstLine">false</boolProp>
-                  <stringProp name="delimiter">,</stringProp>
-                  <boolProp name="quotedData">false</boolProp>
-                  <boolProp name="recycle">true</boolProp>
-                  <boolProp name="stopThread">false</boolProp>
-                  <stringProp name="shareMode">shareMode.all</stringProp>
-                </CSVDataSet>
-                <hashTree/>
-              </hashTree>
+              <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Recent 20000 Property Ids (CSV Config)" enabled="true">
+                <stringProp name="filename">C:/code/load-tests/RecentPropertyIds.csv</stringProp>
+                <stringProp name="fileEncoding"></stringProp>
+                <stringProp name="variableNames">propertyId</stringProp>
+                <boolProp name="ignoreFirstLine">false</boolProp>
+                <stringProp name="delimiter">,</stringProp>
+                <boolProp name="quotedData">false</boolProp>
+                <boolProp name="recycle">true</boolProp>
+                <boolProp name="stopThread">false</boolProp>
+                <stringProp name="shareMode">shareMode.all</stringProp>
+              </CSVDataSet>
+              <hashTree/>
             </hashTree>
           </hashTree>
         </hashTree>
@@ -979,7 +1001,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables (Prod Env Profile)" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="TestEnvProtocol" elementType="Argument">
             <stringProp name="Argument.name">TestEnvProtocol</stringProp>
@@ -988,7 +1010,7 @@
           </elementProp>
           <elementProp name="TestEnvApiDomain" elementType="Argument">
             <stringProp name="Argument.name">TestEnvApiDomain</stringProp>
-            <stringProp name="Argument.value">api.TBD.movebubble.com</stringProp>
+            <stringProp name="Argument.value">api-v2.movebubble.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TestEnvPort" elementType="Argument">
