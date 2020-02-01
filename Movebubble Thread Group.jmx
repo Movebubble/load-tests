@@ -33,10 +33,10 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;appKey&quot;: &quot;SEARCH_APP&quot;,&#xd;
-	&quot;authDetails&quot;: {&#xd;
-		&quot;type&quot;: &quot;ANONYMOUS&quot;&#xd;
-	}&#xd;
+  &quot;appKey&quot;: &quot;SEARCH_APP&quot;,&#xd;
+  &quot;authDetails&quot;: {&#xd;
+    &quot;type&quot;: &quot;ANONYMOUS&quot;&#xd;
+  }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -553,9 +553,9 @@
     &quot;renterSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
    &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
@@ -623,13 +623,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -637,8 +637,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -704,13 +704,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -718,8 +718,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -785,13 +785,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -799,8 +799,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -866,13 +866,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -880,8 +880,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -947,13 +947,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -961,8 +961,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1028,13 +1028,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1042,8 +1042,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1109,13 +1109,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1123,8 +1123,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1190,13 +1190,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1204,8 +1204,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1271,13 +1271,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1285,8 +1285,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1352,13 +1352,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1366,8 +1366,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1433,13 +1433,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1447,8 +1447,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1514,13 +1514,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1528,8 +1528,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1595,13 +1595,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1609,8 +1609,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1676,13 +1676,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1690,8 +1690,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1757,13 +1757,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1771,8 +1771,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1838,13 +1838,13 @@
     &quot;savedSearch&quot;: {&#xd;
       &quot;cityKey&quot;: &quot;LONDON&quot;,&#xd;
       &quot;entityFilters&quot;: [	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	],&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	],&#xd;
       &quot;sort&quot;: null,&#xd;
       &quot;basicFilters&quot;: null,&#xd;
-	   &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
-	   &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
+     &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
+     &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
       &quot;price&quot;: {&#xd;
         &quot;priceType&quot;: &quot;PER_MONTH&quot;,&#xd;
       &quot;priceFrom&quot;:${__groovy(return (new Random().nextInt(700-500+1)+500))},&#xd;
@@ -1852,8 +1852,8 @@
       }&#xd;
     },&#xd;
   &quot;pagination&quot;: {&#xd;
-  	&quot;from&quot;:0,&#xd;
-  	&quot;to&quot;: 10&#xd;
+    &quot;from&quot;:0,&#xd;
+    &quot;to&quot;: 10&#xd;
   },&#xd;
   &quot;config&quot;: {&#xd;
         &quot;city&quot;: &quot;LONDON&quot;,&#xd;
@@ -1931,13 +1931,13 @@
       &quot;to&quot;:15&#xd;
    },&#xd;
    &quot;basicFilters&quot;:[&#xd;
-   	&quot;${basicFilter}&quot;&#xd;
+     &quot;${basicFilter}&quot;&#xd;
    ],&#xd;
    &quot;entityFilters&quot;:[&#xd;
-	   {&#xd;
-	   	&quot;type&quot;: &quot;AREA&quot;,&#xd;
-	   	&quot;key&quot;: &quot;${areaKey}&quot;&#xd;
-	   }	&#xd;
+     {&#xd;
+       &quot;type&quot;: &quot;AREA&quot;,&#xd;
+       &quot;key&quot;: &quot;${areaKey}&quot;&#xd;
+     }	&#xd;
    ],&#xd;
    &quot;bathrooms&quot;:[0, 1, 2, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 3))}],&#xd;
    &quot;bedrooms&quot;:[1, 2, 3, ${__groovy(return (new Random().nextInt(2) == 1 ? 4 : 0))}],&#xd;
@@ -2366,11 +2366,11 @@
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-	&quot;type&quot;:&quot;AVAILABLE&quot;,&#xd;
-	&quot;pagination&quot;: {&#xd;
-		&quot;from&quot;: 0, &#xd;
-		&quot;to&quot;: 10&#xd;
-	}&#xd;
+  &quot;type&quot;:&quot;AVAILABLE&quot;,&#xd;
+  &quot;pagination&quot;: {&#xd;
+    &quot;from&quot;: 0, &#xd;
+    &quot;to&quot;: 10&#xd;
+  }&#xd;
 }&#xd;
 </stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
@@ -2592,12 +2592,12 @@
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.value">{&#xd;
-	&quot;messages&quot;: [&#xd;
-		{&#xd;
-			&quot;type&quot;: &quot;TEXT_MESSAGE&quot;,&#xd;
-			&quot;text&quot;: &quot;JMeter super keep to get this apartment&quot;&#xd;
-		}&#xd;
-	]&#xd;
+  &quot;messages&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;TEXT_MESSAGE&quot;,&#xd;
+      &quot;text&quot;: &quot;JMeter super keep to get this apartment&quot;&#xd;
+    }&#xd;
+  ]&#xd;
 }&#xd;
 </stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
@@ -2802,10 +2802,10 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;appKey&quot;: &quot;SEARCH_APP&quot;,&#xd;
-	&quot;authDetails&quot;: {&#xd;
-		&quot;type&quot;: &quot;ANONYMOUS&quot;&#xd;
-	}&#xd;
+  &quot;appKey&quot;: &quot;SEARCH_APP&quot;,&#xd;
+  &quot;authDetails&quot;: {&#xd;
+    &quot;type&quot;: &quot;ANONYMOUS&quot;&#xd;
+  }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -3043,6 +3043,11 @@
           <elementProp name="TestEnvPort" elementType="Argument">
             <stringProp name="Argument.name">TestEnvPort</stringProp>
             <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SourceDirectory" elementType="Argument">
+            <stringProp name="Argument.name">SourceDirectory</stringProp>
+            <stringProp name="Argument.value">${__env(SOURCE_DIRECTORY, SourceDirectory)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
