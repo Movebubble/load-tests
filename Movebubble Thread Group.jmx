@@ -20,8 +20,8 @@
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">50</stringProp>
-        <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">9999999999</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">9999999</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -603,7 +603,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -684,7 +684,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -765,7 +765,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -846,7 +846,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -927,7 +927,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1008,7 +1008,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1089,7 +1089,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1170,7 +1170,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1251,7 +1251,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1332,7 +1332,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1413,7 +1413,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1494,7 +1494,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1575,7 +1575,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1656,7 +1656,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1737,7 +1737,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1818,7 +1818,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1899,7 +1899,7 @@
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+              <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
@@ -1980,7 +1980,7 @@
                 <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Query Params (CSV Config)" enabled="true">
                   <stringProp name="delimiter">,</stringProp>
                   <stringProp name="fileEncoding"></stringProp>
-                  <stringProp name="filename">C:/code/load-tests/RenterSearchSortOptions.csv</stringProp>
+                  <stringProp name="filename">${SourceDirectory}/load-tests/RenterSearchSortOptions.csv</stringProp>
                   <boolProp name="ignoreFirstLine">false</boolProp>
                   <boolProp name="quotedData">false</boolProp>
                   <boolProp name="recycle">true</boolProp>
@@ -1992,7 +1992,7 @@
                 <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Area Params (CSV Config)" enabled="true">
                   <stringProp name="delimiter">,</stringProp>
                   <stringProp name="fileEncoding"></stringProp>
-                  <stringProp name="filename">C:/code/load-tests/LondonAreaKeys.txt</stringProp>
+                  <stringProp name="filename">${SourceDirectory}/load-tests/LondonAreaKeys.txt</stringProp>
                   <boolProp name="ignoreFirstLine">false</boolProp>
                   <boolProp name="quotedData">false</boolProp>
                   <boolProp name="recycle">true</boolProp>
@@ -2004,7 +2004,7 @@
                 <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Basic Filter Params (CSV Config)" enabled="true">
                   <stringProp name="delimiter">,</stringProp>
                   <stringProp name="fileEncoding"></stringProp>
-                  <stringProp name="filename">C:/code/load-tests/RenterSearchBasicFilterOptions.txt</stringProp>
+                  <stringProp name="filename">${SourceDirectory}/load-tests/RenterSearchBasicFilterOptions.txt</stringProp>
                   <boolProp name="ignoreFirstLine">false</boolProp>
                   <boolProp name="quotedData">false</boolProp>
                   <boolProp name="recycle">true</boolProp>
